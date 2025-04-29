@@ -34,12 +34,14 @@ export default function App() {
 
   return (
     <div className="container">
+      <div className="purple-blur blur-left" />
+      <div className="purple-blur blur-right" />
+      <img src="https://i.ibb.co/6ctCThjx/Yodl-icon-512-x-512-px-180-x-180-px-2.png" alt="Yapp Logo" className="yapp-logo no-bg" />
       <div className="title-row">
-        <img src="https://i.ibb.co/NdF61ZcW/Yodl-icon-512-x-512-px-180-x-180-px-1.png" alt="Yapp Logo" className="yapp-logo" />
         <h1 className="title">Yapp Tester</h1>
       </div>
       <p className="desc">Test your Yapp before deploying.<br />Enter your Yapp URL below and preview it instantly.</p>
-      <form className="input-section" onSubmit={handleLoadYapp} autoComplete="off" style={{flexDirection: 'column', gap: '14px', alignItems: 'stretch'}}>
+      <form className="input-section" onSubmit={handleLoadYapp} autoComplete="off">
         <input
           className="url-input"
           type="text"
