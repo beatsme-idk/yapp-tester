@@ -1,4 +1,4 @@
-# Yapp Tester
+# Yapp Testing
 
 A minimalist React SPA to test and preview Yapps before deployment.
 

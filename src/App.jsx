@@ -38,7 +38,7 @@ export default function App() {
       <div className="purple-blur blur-right" />
       <img src="https://i.ibb.co/6ctCThjx/Yodl-icon-512-x-512-px-180-x-180-px-2.png" alt="Yapp Logo" className="yapp-logo no-bg" />
       <div className="title-row">
-        <h1 className="title">Yapp Tester</h1>
+        <h1 className="title">Yapp Testing</h1>
       </div>
       <p className="desc">Test your Yapp before deploying.<br />Enter your Yapp URL below and preview it instantly.</p>
       <form className="input-section" onSubmit={handleLoadYapp} autoComplete="off">
