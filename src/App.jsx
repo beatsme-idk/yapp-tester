@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 
+function normalizeUrl(input) {
+  // Add https:// if missing and not a localhost/dev URL
+  if (/^(https?:)?\/\//i.test(input)) return input;
+  if (/^localhost[:\/]|^127\./.test(input)) return 'http://' + input;
+  return 'https://' + input;
+}
+
 export default function App() {
   const [url, setUrl] = useState('');
-  const [iframeUrl, setIframeUrl] = useState('');
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleInputChange = (e) => {
@@ -17,16 +22,14 @@ export default function App() {
       setError('Please enter a Yapp URL.');
       return;
     }
-    if (window.innerWidth <= 600) {
-      window.location.href = url.trim();
+    const normalized = normalizeUrl(url.trim());
+    try {
+      new URL(normalized);
+    } catch {
+      setError('Please enter a valid URL.');
       return;
     }
-    setLoading(true);
-    setIframeUrl(url.trim() + '?t=' + Date.now());
-  };
-
-  const handleIframeLoad = () => {
-    setLoading(false);
+    window.location.href = normalized;
   };
 
   return (
@@ -39,7 +42,7 @@ export default function App() {
       <form className="input-section" onSubmit={handleLoadYapp} autoComplete="off" style={{flexDirection: 'column', gap: '14px', alignItems: 'stretch'}}>
         <input
           className="url-input"
-          type="url"
+          type="text"
           placeholder="Enter URL"
           value={url}
           onChange={handleInputChange}
