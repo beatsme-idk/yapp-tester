@@ -1,8 +1,16 @@
 @import url('/plus-jakarta-sans.css');
 
-body, html {
-  margin: 0;
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
   padding: 0;
+  margin: 0;
+}
+
+body {
+  touch-action: pan-y;
+  overscroll-behavior-y: none;
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
   /* Modern purple-blue gradient */
